@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Yellowtail&family=Young+Serif&display=swap');
+:root{
+  --aura-gradient: radial-gradient(circle at center, #e3944a, #9f3b1a);
+  --main-blue: #df632a;
+  --hover-color: #CBAF80;
+  --accent-color: #d08e55;
+  --text-color: #000000;
+  --main-blue: #df632a;
+  --aura-gradient: radial-gradient(circle at center, #e3944a, #9f3b1a);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  font-family: "Montserrat", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--text-color);
+  scroll-behavior: smooth; /*For bookmark links*/
+}
+body{
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #f0edeb;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+      opacity: 1;
+  }
+}
+/* custom font  */
+@font-face {
+  font-family: 'FontOne';
+  src: url('assets/Fonts/y-1999-k-sans.ttf') format('truetype');
+}
+
+h1 {
+  font-family: 'FontOne', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: 'FontOne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1.3rem;
+  font-weight:normal;
+}
+@font-face {
+  font-family: 'FontThree';
+  src: url('assets/Fonts/Eina02-Bold.ttf') format('truetype');
+}
+
+h4 {
+  font-family: 'FontThree', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+/* custom font  */
+main{
+  padding: min(5em, 7%);
+}
+/* clock */
+#mainContent {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+#clock {
+  font-family: 'FontOne', sans-serif;
+  font-size: 13rem;
+  font-weight: bold;
+  color: #201816;
+  text-align: center;
+  margin-top: 19rem;
+  margin-right: 64rem;
+  flex: 1 1 200px;
+}
+/* clock */
+
+main p{
+  margin-top: .35em;
+}
+nav{
+  background-color: #f0edeb;
+  border-bottom: 1px solid var(--hover-color);
+}
+nav ul{
+  list-style: none;
+  display: flex;
+}
+nav .home-li{
+  margin-right: auto;
+}
+nav li{
+  display: flex;
+}
+nav a{
+  display: flex;
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 1em 2em;
+  transition: background-color 150ms ease;
+}
+nav a:hover{
+  background-color: var(--hover-color);
+}
+nav a.active-link{
+  border-bottom: 2px solid var(--text-color);
+}
+nav a.accent-link{
+  background-color: var(--accent-color);
+}
+#open-sidebar-button{
+  display: none;
+  background: none;
+  border: none;
+  padding: 1em;
+  margin-left: auto;
+  cursor: pointer;
+}
+#close-sidebar-button{
+  display: none;
+  background: none;
+  border: none;
+  padding: 1em;
+  cursor: pointer;
+}
+#overlay{
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  display: none;
+}
+.skip-link {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  background-color: var(--accent-color); 
+  color: #ffffff; 
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: opacity 0.3s ease;
+}
+
+.skip-link:focus {
+  opacity: 1; 
+  pointer-events: auto; 
+  outline: 3px solid #ffffff; 
+}
+@media screen and (max-width: 700px) {
+  #open-sidebar-button, #close-sidebar-button{
+    display: block;
+  }
+  nav{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: min(15em, 100%);
+    z-index: 10;
+    border-left: 1px solid var(--hover-color);
+    transition: right 300ms ease-in-out;
+  }
+  nav.show{
+    right: 0;
+  }
+  nav.show ~ #overlay{
+    display: block;
+  }
+  nav ul{
+    width: 100%;
+    flex-direction: column;
+  }
+  nav a{
+    width: 100%;
+    padding-left: 2.5em;
+  }
+  nav a.active-link{
+    border-bottom: none;
+  }
+  nav .home-li{
+    margin-right: unset;
+  }
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+  #clock {
+      font-size: 3.5rem;
+      margin-top: 10rem;
+      margin-right: 44rem;
+      
+        }
+  }
+}
+/* about Learnify */
+.about-section {
+  padding: 20px;
+  background-color: #efe7e7;
+  border-radius: 8px;
+}
+.about-section h2 {
+  margin-top: 0;
+}
+.feature-list {
+  margin-top: 20px;
+}
+.feature-list h4 {
+  margin-top: 15px;
+}
+.me-icon{
+  width: 800px;
+  height: auto;
+}
+.gallery-item {
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+.gallery-item img {
+  width: 80%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+ /* Container divided by vertical lines */
+ .notes-container {
+  display: flex;
+  border-left: 2px solid #E7D4B3;
+  border-right: 2px solid #E7D4B3;
+  background-image: radial-gradient(#CBAF80 1px, transparent 1px);
+  background-size: 10px 10px;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+.notes-segment {
+  flex: 1;
+  border-right: 2px solid #ccc;
+  padding: 10px;
+  min-height: 200px;
+  min-width: 100px;
+  position: relative;
+  margin-left: 130px;
+}
+.notes-segment:last-child {
+  border-right: none;
+}
+/* Dotted points in each segment */
+.dot-point {
+  height: 10px;
+  width: 10px;
+  background-color: #3C382F;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 5px;
+}
